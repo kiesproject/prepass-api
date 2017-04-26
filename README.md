@@ -5,4 +5,6 @@
 言語はPythonで書こうと思っています(違うものを使うかもしれない).
 
 ## どきゅめんと
-このソフトウェアに関するドキュメントは [Wiki](https://github.com/kiesproject/prepass-api/wiki) にあります
+このソフトウェアに関するドキュメントは [Docs][docs] にあります
+
+[docs]: docs/
