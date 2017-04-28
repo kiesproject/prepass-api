@@ -9,14 +9,14 @@
 ## <a name="scheme"/> スキーマ
 APIアクセスはすべて`HTTPS`で行います。
 
-すべてのAPIで使われるタイムスタンプは [ISO 8601](https://ja.wikipedia.org/wiki/ISO_8601) の拡張方式で表されます :。
+すべてのAPIで使われるタイムスタンプは [ISO 8601](https://ja.wikipedia.org/wiki/ISO_8601) の拡張方式で表されます。 :
 
     YYYY-MM-DDTHH:MM:SSZ
 
 文字エンコードは `UTF-8` です。
 
 ## <a name="root_endpoint"/> ルートエンドポイント
-URLのルートエンドポイントは以下のようになります :。
+URLのルートエンドポイントは以下のようになります。 :
 
     https://api.<ドメイン未定>
 
@@ -24,7 +24,7 @@ URLのルートエンドポイントは以下のようになります :。
 現在のAPIバージョンは `v0`(仕様策定中) です.  
 予告なくエンドポイントやJSONの構造が変わる可能性があります。
 
-APIバージョンはURLに含まれます :。
+APIバージョンはURLに含まれます。 :
 
     https://api.<ドメイン未定>/prepass/v0/search
 
