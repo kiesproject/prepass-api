@@ -1,0 +1,7 @@
+{
+    "dependencies": {
+        "github.com/labstack/echo": {
+            "version": "^3.1.0"
+        }
+    }
+}
