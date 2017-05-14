@@ -1,5 +1,5 @@
 {
-    "memo": "adbad86b49899c9d91d4b01fbe9e724e7c90a3d82c0289c3b1c1153302264e4e",
+    "memo": "952821b390f99aea98c03aac32b870b3773fcd317727f77b2deb878947e334a2",
     "projects": [
         {
             "name": "github.com/dgrijalva/jwt-go",
@@ -46,6 +46,14 @@
             ]
         },
         {
+            "name": "github.com/pkg/errors",
+            "version": "v0.8.0",
+            "revision": "645ef00459ed84a119197bfb8d8205042c6df63d",
+            "packages": [
+                "."
+            ]
+        },
+        {
             "name": "github.com/valyala/bytebufferpool",
             "branch": "master",
             "revision": "e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7",
@@ -64,7 +72,7 @@
         {
             "name": "golang.org/x/crypto",
             "branch": "master",
-            "revision": "122d919ec1efcfb58483215da23f815853e24b81",
+            "revision": "ab89591268e0c8b748cbe4047b00197516011af5",
             "packages": [
                 "acme/autocert"
             ]
@@ -72,9 +80,17 @@
         {
             "name": "golang.org/x/sys",
             "branch": "master",
-            "revision": "9ccfe848b9db8435a24c424abbc07a921adf1df5",
+            "revision": "f845067cf72a21fb4929b0e6a35273bd83b56396",
             "packages": [
                 "unix"
+            ]
+        },
+        {
+            "name": "gopkg.in/olivere/elastic.v5",
+            "version": "v5.0.37",
+            "revision": "d401c698bf1e0f5f6c13a5388a79967f095836be",
+            "packages": [
+                "."
             ]
         }
     ]
