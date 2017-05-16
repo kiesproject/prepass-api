@@ -19,11 +19,11 @@ func main() {
 	//CORS
 	e.Use(middleware.CORS())
 
-	// v0のAPIエンドポイントグループ
-	v0 := e.Group("/v0")
+	// APIエンドポイントグループ
+	api := e.Group("/:version")
 
 	// Routers
-	v0.GET("/search", handler.GetSearch)
+	api.GET("/search", handler.GetSearch)
 
 	e.Start(":8080")
 }

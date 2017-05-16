@@ -17,6 +17,17 @@ type SearchResult struct {
 }
 
 func GetSearch(c echo.Context) error {
+	apiErrors := errors.APIErrors{}
+	version := c.Param("version")
+
+	if version != "v0" {
+		apiErrors.Errors = append(apiErrors.Errors, errors.ApiError{
+			StatusCode: http.StatusNotFound,
+			Message:    "This API endpoint does not exist.",
+		})
+		return c.JSONPretty(http.StatusNotFound, apiErrors, "  ")
+	}
+
 	es, ctx := elasticsearch.Elastic()
 
 	query := c.QueryParam("q")
@@ -29,7 +40,6 @@ func GetSearch(c echo.Context) error {
 
 	// init
 	searchService := es.Search("prepass")
-	apiErrors := errors.APIErrors{}
 
 	// TODO 2017/05/16 このクソみたいによくわからない条件分岐をどうにかする
 
