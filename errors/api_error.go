@@ -1,7 +1,7 @@
 package errors
 
 type (
-	APIErrors struct {
+	ApiErrors struct {
 		Errors []ApiError `json:"errors"`
 	}
 

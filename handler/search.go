@@ -17,7 +17,7 @@ type SearchResult struct {
 }
 
 func GetSearch(c echo.Context) error {
-	apiErrors := errors.APIErrors{}
+	apiErrors := errors.ApiErrors{}
 	version := c.Param("version")
 
 	if version != "v0" {
