@@ -17,14 +17,11 @@ type SearchResult struct {
 }
 
 func GetSearch(c echo.Context) error {
-	apiErrors := errors.ApiErrors{}
+	apiErrors := errors.NewApiErrors()
 	version := c.Param("version")
 
 	if version != "v0" {
-		apiErrors.Errors = append(apiErrors.Errors, errors.ApiError{
-			StatusCode: http.StatusNotFound,
-			Message:    "This API endpoint does not exist.",
-		})
+		apiErrors = apiErrors.AddError(http.StatusNotFound, "This API endpoint does not exist.")
 		return c.JSONPretty(http.StatusNotFound, apiErrors, "  ")
 	}
 
@@ -45,10 +42,10 @@ func GetSearch(c echo.Context) error {
 
 	// クエリが指定されておらず、かつ緯度経度のどちらかが指定されていない
 	if query == "" && (lat == "" || lon == "") {
-		apiErrors.Errors = append(apiErrors.Errors, errors.ApiError{
-			StatusCode: http.StatusBadRequest,
-			Message:    "Not enough params. Please set search query or location query.",
-		})
+		apiErrors = apiErrors.AddError(
+			http.StatusBadRequest,
+			"Not enough params. Please set search query or location query.",
+		)
 		return c.JSONPretty(http.StatusBadRequest, apiErrors, "  ")
 	}
 
@@ -87,10 +84,10 @@ func GetSearch(c echo.Context) error {
 	// execute
 	result, err := searchService.Do(ctx)
 	if err != nil {
-		apiErrors.Errors = append(apiErrors.Errors, errors.ApiError{
-			StatusCode: http.StatusInternalServerError,
-			Message:    "An error occurred during the search process",
-		})
+		apiErrors = apiErrors.AddError(
+			http.StatusInternalServerError,
+			"An error occurred during the search process",
+		)
 		return c.JSONPretty(http.StatusInternalServerError, err.Error(), "  ")
 	}
 
