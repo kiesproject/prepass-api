@@ -4,6 +4,6 @@
 このソフトウェアは[プレミアムパスポート](http://www.i-oyacomi.net/prepass/)のオープンデータを使用したWebAPIです。
 
 ## <a name="api"/> APIドキュメント
-APIドキュメントは[こちら][api_overview]から。
+APIドキュメントは[こちら][api]から。
 
-[api_overview]: api/overview.md
+[api]: api/
