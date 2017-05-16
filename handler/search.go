@@ -87,7 +87,6 @@ func GetSearch(c echo.Context) error {
 	// execute
 	result, err := searchService.Do(ctx)
 	if err != nil {
-		echo.Logger.Error(err.Error())
 		apiErrors.Errors = append(apiErrors.Errors, errors.ApiError{
 			StatusCode: http.StatusInternalServerError,
 			Message:    "An error occurred during the search process",
