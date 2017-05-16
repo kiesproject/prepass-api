@@ -33,13 +33,12 @@ APIバージョンはURLに含まれます。 :
 
 それぞれの要素については以下のようになります。
 
-|キー|データ型|説明|
-|:---|:-------|:---|
-|code|int|HTTPステータスコードではなくAPI側のエラーコードです. くわしくは[error](api/error)のページを見てね|
-|message|string|エラーの大まかな内容です|
-|description|string|エラーの詳しい説明|
+|キー       |データ型 |説明|
+|:----------|:-------|:---|
+|status_code|int     |HTTPステータスコードです|
+|message    |string  |エラーの大まかな内容です|
 
-### 必要なパラメータが足りない or パラメータのデータ型が違う
+### 例
 
     Status: 400 Bad Request
 
@@ -47,9 +46,8 @@ APIバージョンはURLに含まれます。 :
 {
   "errors":[
     {
-      "code": 40001,
-      "message": "Invalid params",
-      "description": "Missing search query parameter"
+      "status_code": 400,
+      "message": "Not enough params. Please set search query or location query."
     }
     # 複数ある場合もあるよ
   ]
