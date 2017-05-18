@@ -44,7 +44,7 @@ func GetSearch(c echo.Context) error {
 	if query == "" && (lat == "" || lon == "") {
 		apiErrors = apiErrors.AddError(
 			http.StatusBadRequest,
-			"Not enough params. Please set search query or location query.",
+			"Not enough params. Please set `q` or `lat`, `lon`, `range` query.",
 		)
 		return c.JSONPretty(http.StatusBadRequest, apiErrors, "  ")
 	}
