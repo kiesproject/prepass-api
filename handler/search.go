@@ -61,8 +61,24 @@ func GetSearch(c echo.Context) error {
 
 	// 位置情報検索
 	if lat != "" && lon != "" && distance != "" {
-		la, _ := strconv.ParseFloat(lat, 64)
-		lo, _ := strconv.ParseFloat(lon, 64)
+		la, errLat := strconv.ParseFloat(lat, 64)
+		if errLat != nil {
+			apiErrors = apiErrors.AddError(
+				http.StatusBadRequest,
+				"Invalid latitude format: must be a positive float number",
+			)
+		}
+		lo, errLon := strconv.ParseFloat(lon, 64)
+		if errLon != nil {
+			apiErrors = apiErrors.AddError(
+				http.StatusBadRequest,
+				"Invalid longitude format: must be a positive float number",
+			)
+		}
+
+		if errLat != nil || errLon != nil {
+			return c.JSONPretty(http.StatusBadRequest, apiErrors, "  ")
+		}
 
 		distanceQuery := elastic.NewGeoDistanceQuery("location")
 		distanceQuery.
