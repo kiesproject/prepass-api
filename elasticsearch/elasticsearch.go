@@ -12,7 +12,7 @@ func Elastic() (*elastic.Client, context.Context) {
 
 	client, err := elastic.NewClient(
 		// elasticsearchのdocker内IPアドレス
-		elastic.SetURL("elasticsearch:9200"),
+		elastic.SetURL("127.0.0.1:9200"),
 		// これつけないとつながらない?
 		// https://github.com/olivere/elastic/issues/58#issuecomment-156052782
 		elastic.SetSniff(false),
