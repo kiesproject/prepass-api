@@ -18,7 +18,9 @@ APIアクセスはすべて`HTTPS`で行います。
 ## <a name="root_endpoint"/> ルートエンドポイント
 URLのルートエンドポイントは以下のようになります。 :
 
-    https://api.<ドメイン未定>
+    https://api.snowfox.tk
+
+※ 暫定的なので変わる可能性があります。
 
 ## <a name="versioning"/> バージョン
 現在のAPIバージョンは `v0`(仕様策定中) です.  
