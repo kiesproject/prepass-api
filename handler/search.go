@@ -53,6 +53,8 @@ func GetSearch(c echo.Context) error {
 	if query != "" {
 		term := elastic.NewSimpleQueryStringQuery(query).
 			Field("shop_name^3").      // 店舗名 (重み3倍)
+			Field("genre^2").          // ジャンルでの一致 (重み2倍)
+			Field("pr_message^2").     // PRメッセージ (重み2倍)
 			Field("address").          // 住所
 			Field("building_address"). // 建物住所
 			DefaultOperator("and")
