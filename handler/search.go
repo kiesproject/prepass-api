@@ -90,6 +90,14 @@ func GetSearch(c echo.Context) error {
 			Distance(distance).
 			DistanceType("plane")
 		searchService = searchService.Query(distanceQuery)
+
+		distanceSort := elastic.NewGeoDistanceSort("location")
+		distanceSort.
+			Point(la, lo).
+			Asc().
+			Unit("meters")
+
+		searchService = searchService.SortBy(distanceSort)
 	}
 
 	size, err := strconv.Atoi(sizeStr)
