@@ -7,7 +7,7 @@
 - [レートリミット](#rate_limiting)
 
 ## <a name="scheme"/> スキーマ
-APIアクセスはすべて`HTTPS`で行います。
+APIアクセスはすべて`HTTPS`で行います。HTTPで接続を行うと403が返却されます。
 
 すべてのAPIで使われるタイムスタンプは [ISO 8601](https://ja.wikipedia.org/wiki/ISO_8601) の拡張方式で表されます。 :
 
