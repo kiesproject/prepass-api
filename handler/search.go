@@ -51,11 +51,19 @@ func GetSearch(c echo.Context) error {
 	// 検索クエリ指定
 	if query != "" {
 		term := elastic.NewSimpleQueryStringQuery(query).
-			Field("shop_name^3").      // 店舗名 (重み3倍)
-			Field("genre^2").          // ジャンルでの一致 (重み2倍)
-			Field("pr_message^2").     // PRメッセージ (重み2倍)
-			Field("address").          // 住所
-			Field("building_address"). // 建物住所
+			Field("shop_name.ja^3"). // 店舗名 (重み3倍)
+			Field("shop_name.fact^3").
+			Field("shop_name.ngram^3").
+			Field("genres.genre.ja^3"). // ジャンル
+			Field("pr_message.ja^2"). // PRメッセージ (重み2倍)
+			Field("pr_message.fact^2").
+			Field("pr_message.ngram^2").
+			Field("address.ja"). // 住所
+			Field("address.fact").
+			Field("address.ngram").
+			Field("building_address.ja"). // 建物住所
+			Field("building_address.fact").
+			Field("building_address.ngram").
 			DefaultOperator("and").
 			Flags("OR|AND|NOT") // 検索時の特殊検索を使えるようにする
 		searchService = searchService.Query(term)
