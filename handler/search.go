@@ -33,7 +33,6 @@ func GetSearch(c echo.Context) error {
 	lat := c.QueryParam("lat")
 	lon := c.QueryParam("lon")
 	distance := c.QueryParam("range")
-	sizeStr := c.QueryParam("size")
 
 	// init
 	searchService := es.Search("prepass")
@@ -100,13 +99,9 @@ func GetSearch(c echo.Context) error {
 		searchService = searchService.SortBy(distanceSort)
 	}
 
-	size, err := strconv.Atoi(sizeStr)
-	if err != nil {
-		// デフォルトの検索結果表示数は20
-		size = 20
-	}
-
-	searchService = searchService.Size(size)
+	// 頭悪いけど1000件以上合致する検索しなさそうだし1000件で決め打ち
+	// TODO: ページング処理の追加
+	searchService = searchService.Size(1000)
 
 	// execute
 	result, err := searchService.Do(ctx)
