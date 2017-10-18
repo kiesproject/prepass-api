@@ -40,11 +40,8 @@
       "url": "http://www.hogehoge.com/",
       "open_time": "平日10：00～19：00、土日祝10：00～18：00",
       "close_time": "毎週火曜日",
-      "pr_message": "当店はほげほげでふがふがなおみせです",
-      "image_urls": [
-        "http://www.i-oyacomi.net/prepass/upimages/co123456ofid0001ofPic1_middle.jpg"
-      ],
-      "genres": [
+      "pr_message": "当店はほげほげでふがふがなおみせです,
+      "genres": [
         "食品",
         "日用品"
       ],
