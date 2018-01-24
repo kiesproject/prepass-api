@@ -1,4 +1,6 @@
-# ぷれぱす WebAPI サーバ
+# [Deprecated] ぷれぱす WebAPI サーバ
+
+**このAPIは廃止予定です。今後は[prepass-opendata](https://github.com/kiesproject/prepass-opendata)を使用してください。**
 
 プレミアムパスポートのオープンデータを使用したWebAPIです.
 
